@@ -1,0 +1,49 @@
+<%- include ('partials/header.ejs') -%>
+
+<title>TwoHearts - Find your match</title>
+
+<%- include ('partials/nav.ejs') -%>
+
+<h1>Find your match.</h1>
+
+<form id="searchInterests">
+    <input type="text" name="term" placeholder="Search interests ..." id="search">
+</form>
+
+<div id="container">
+
+    <% for (var userInfo = 0; userInfo < data.length; userInfo++) { %>
+
+    <div class="user">
+        <img src="<%=data[userInfo].img%>" alt="profileIMG" class="profileIMG">
+
+        <h2 class="username">
+            <a href="/<%= data[userInfo].id%>" class="linkProfile"> <%=data[userInfo].username%> </a> |
+            <%= data[userInfo].age %>
+        </h2>
+
+        <p class="bio"> <%= data[userInfo].bio %> </p>
+
+        <p class="interests"><%= data[userInfo].interests %></p>
+
+        <div class="likeDislike">
+
+            <button class="likeDislikeBTN">
+
+                <img src="images/dislike.png" alt="profile" class="likeDislikeIMG" id=dislike
+                    data-value="<%= data[userInfo]._id %>">
+
+            </button>
+
+            <button class="likeDislikeBTN">
+                <img src="images/like.png" alt="profile" class="likeDislikeIMG">
+            </button>
+
+        </div>
+
+    </div>
+
+    <% } %>
+</div>
+
+<%- include ('partials/footer.ejs') -%>

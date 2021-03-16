@@ -1,0 +1,235 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+/*********************
+    NAVIGATION BAR
+**********************/
+
+ul{
+    list-style-type: none;
+    display: flex;
+    /* justify-content: center; */
+    max-width: 50%;
+    height: 10%;
+    margin: 2em auto 0 auto;
+}
+
+li{
+    margin: 0 auto;
+    
+}
+
+.nav{
+    max-height: 3em;
+}
+
+
+
+/*****************
+    PAGE TITLE
+******************/
+h1{
+    color: #484E5D;
+    text-shadow: 2px 2px #CCD0D7;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+/*********************
+    RESPONSIVE GRID
+**********************/
+#container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    grid-gap: 1.5em;
+    justify-items: center;
+}
+
+.user{
+    border-radius: 5%;
+    background-color: #CCD0D7;
+    max-width: 15em;
+    height: 100%;
+    box-shadow: 5px 5px 5px #E9E9E9;
+    padding: 24px;
+}
+
+/***************
+    SEARCHBAR
+****************/
+#search{
+    display: block;
+    margin: 0 auto 4em auto;
+    width: 50%;
+    height: 4em;
+    padding: 10px;
+    border-radius: 3rem;
+    border-color: #484E5D;
+    border-width: 3px;
+    border-style: solid;
+    box-shadow: 2px 2px #CCD0D7;
+    ;
+}
+
+/********************
+    USERS STYLING
+*********************/
+.profileIMG{
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 0 auto;
+}
+
+
+.linkProfile{
+    text-decoration: none;
+    color: #484E5D;
+}
+
+
+.username::first-letter{
+    text-transform: uppercase;
+}
+
+.username{
+    color: #484E5D;
+    font-size: 1.2em;
+}
+
+.bio{
+    font-size: 0.8em;
+}
+
+.likeDislike{
+    display:flex ;
+    justify-content: center ;
+    vertical-align: top;
+    align-items: center;
+}
+
+.likeDislikeBTN{
+    margin: 1em auto 0 auto;
+    background-color: transparent;
+    border: none;
+}
+
+.likeDislikeIMG{
+    width: 3em;
+}
+
+.interests{
+    width: 192px;
+}
+
+.interestsContainer{
+   display: inline-grid;
+   grid-template-rows: 1fr;
+
+}
+
+
+.interestsContainer p{
+    font-size: 0.8em;
+    margin: 0 .5em 1em 0;
+    border-radius: 5%;
+    border: 1px solid #fff;
+    width: auto;
+    padding: 0 5px 0 5px;
+}
+
+
+/*********************
+    PROFILE STYLING
+**********************/
+.profileContainer{
+    border-radius: 5%;
+    background-color: #CCD0D7;
+    width: 408px;
+    height: 100%;
+    box-shadow: 5px 5px 5px #E9E9E9;
+    padding: 24px;
+    margin: 0 auto 0 auto;
+}
+
+#profilePicture{
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+.interestsProfile{
+    width: 360px;
+}
+
+.editBTN, .deleteBTN{
+    width: 100%;
+    background: #484E5D;
+    color: #fff;
+    font-size: 1em;
+    margin-top: 2em;
+}
+
+.edit, .delete{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/***********************
+    EDIT FORM STYLING
+************************/
+.formContainer{
+    display: flex;
+    justify-content: center;
+}
+
+
+.label{
+    display: block;
+    margin: 0 0 0 0;
+
+}
+
+.input{
+    width: 100%;
+    border: 1px solid #484E5D;
+    margin: 0 0 1em 0;
+    padding: 5px;
+}
+
+#inputIMG{
+    border-style: none
+    
+}
+
+.textarea{
+    resize: none;
+    border: 1px solid #484E5D;
+    margin: 0 0 0 0;
+    padding: 5px;
+    width: 100%;
+}
+
+.cancel{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.updateBTN{
+    margin: 2em 0 2em 0;
+}
+
+.cancelBTN, .updateBTN{
+    width: 100%;
+    background: #484E5D;
+    color: #fff;
+    font-size: 1em;
+    
+}
+

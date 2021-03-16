@@ -1,0 +1,32 @@
+<%- include ('partials/header.ejs') -%>
+
+<title>TwoHearts - my profile</title>
+
+<%- include ('partials/nav.ejs') -%>
+
+<h1>My profile</h1>
+
+<div class="profileContainer">
+    <img src="uploads/<%=data.img%>" alt="profileIMG" class="profileIMG">
+
+    <h2 class="username"> <%=data.username%> | <%= data.age %> </h2>
+
+    <p class="bio"><%= data.bio %> </p>
+
+    <p class="interests"><%= data.interests %></p>
+
+    <button class="editBTN">
+        <a href="/myprofile/edit" class="edit">Edit info</a>
+    </button>
+
+    <form action="/myprofile-delete" method="POST">
+        <a href="#" class="delete"></a>
+        <button class="deleteBTN">
+            Delete Account
+        </button>
+        </a>
+
+    </form>
+
+
+</div>
