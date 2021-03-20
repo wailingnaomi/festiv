@@ -25,7 +25,6 @@ const User = require('./src/models/users');
   // User refers to our User model. We don't have to use db.collection anymore
   const users = await User.find({})
 
-  console.log(users[0]);
 })()
 
 
