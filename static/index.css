@@ -4,6 +4,10 @@
 
 }
 
+body{
+    background-image: linear-gradient(#F4AD5B, #E44B91)
+}
+
 /*********************
     NAVIGATION BAR
 **********************/
@@ -32,8 +36,7 @@ li{
     PAGE TITLE
 ******************/
 h1{
-    color: #484E5D;
-    text-shadow: 2px 2px #CCD0D7;
+    color: #000000;
     text-align: center;
     margin-top: 1em;
     margin-bottom: 1em;
@@ -51,10 +54,10 @@ h1{
 
 .user{
     border-radius: 5%;
-    background-color: #CCD0D7;
+    background-color: #FFFFFF;
     max-width: 15em;
     height: 100%;
-    box-shadow: 5px 5px 5px #E9E9E9;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, .3);
     padding: 24px;
 }
 
@@ -68,10 +71,10 @@ h1{
     height: 4em;
     padding: 10px;
     border-radius: 3rem;
-    border-color: #484E5D;
+    border-color: #000000;
     border-width: 3px;
     border-style: solid;
-    box-shadow: 2px 2px #CCD0D7;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, .3);
     ;
 }
 
@@ -87,7 +90,7 @@ h1{
 
 .linkProfile{
     text-decoration: none;
-    color: #484E5D;
+    color: #000000;
 }
 
 
@@ -96,12 +99,13 @@ h1{
 }
 
 .username{
-    color: #484E5D;
+    color: #000000;
     font-size: 1.2em;
 }
 
-.bio{
+.genre{
     font-size: 0.8em;
+    color: #828282;
 }
 
 .likeDislike{
@@ -119,10 +123,6 @@ h1{
 
 .likeDislikeIMG{
     width: 3em;
-}
-
-.interests{
-    width: 192px;
 }
 
 .interestsContainer{
