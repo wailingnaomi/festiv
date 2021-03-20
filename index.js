@@ -1,26 +1,48 @@
+require('dotenv').config()
+
+//packages
 const express = require('express')
-const app = express()
 const bodyParser = require('body-parser')
-const mongo = require('mongodb')
 const multer = require('multer')
 const session = require('express-session')
+// const mongo = require('mongodb')
+
+const app = express()
+
+
+const home = require('./src/routes/home')
+
+
+
+// Load in mongoose and make connection to database
+require('./src/db/mongoose.js')
+
+
+// Load in model
+const User = require('./src/models/users');
+
+(async () => {
+  // User refers to our User model. We don't have to use db.collection anymore
+  const users = await User.find({})
+
+  console.log(users[0]);
+})()
+
 
 const api = new express.Router();
 
-require('dotenv').config()
+// // Connect server with database
+// let db = null
+// const url = process.env.DB_URL
+// const ObjectId = require('mongodb').ObjectID;
 
-// Connect server with database
-let db = null
-const url = process.env.DB_URL
-const ObjectId = require('mongodb').ObjectID;
+// mongo.MongoClient.connect(url, function (err, client) {
+//     if (err) {
+//         throw err
+//     }
 
-mongo.MongoClient.connect(url, function (err, client) {
-    if (err) {
-        throw err
-    }
-
-    db = client.db(process.env.DB_NAME)
-});
+//     db = client.db(process.env.DB_NAME)
+// });
 
 
 
@@ -49,9 +71,9 @@ app
         saveUninitialized: true,
         secret: process.env.SESSION_SECRET
     }))
-    .use(api)
+    // .use(api)
     .get('/', start) // register and login
-    .get('/home', users) // homepage with all the users
+    .get('/home', home) // homepage with all the users
     .post('/myprofile', uploadFile.single('profilepicture'), addProfile) // add a profile from 'start'
     .get('/myprofile', myProfile) // profile page
     .get('/myprofile/edit', editProfile) // edit profile 
@@ -63,56 +85,11 @@ app
 
 
 function start(req, res) {
-
     res.render('start.ejs')
-
 }
 
 
-function users(req, res) {
-    // Find only male users in collection userdata and send that to list.ejs
-    db.collection('userdata').find({
-        gender: "male"
-    }).toArray(done)
 
-    function done(err, data) {
-        if (err) {
-            console.log('hier gata het fout')
-            console.log(err)
-
-        } else {
-            res.render('list.ejs', {
-                data: data
-            })
-            console.log(req.session.user)
-        }
-    }
-
-    // If there is no user signed in
-    if (!req.session.user) {
-        //try to insert a user and the data to the collection userdata of the session
-        try {
-            req.session.user = dataProfile
-            // console.log(dataProfile)
-            db.collection('userdata').insertOne(req.session.user, registerUser);
-
-            function registerUser(err, data) {
-                if (err) {
-                    console.log('hier is fout nummero 2')
-                    console.log(err)
-                } else {
-                    req.session.user._id = data.insertedId;
-                    // console.log(req.session.user)
-                    // console.log('ewaaaaa')
-                }
-            }
-        } catch (e) {
-            console.log('nooooopeeeeeeee')
-            console.log(e);
-            res.status(400).send(e)
-        }
-    }
-}
 
 
 // if there is a session, send to home otherwise fill in data and send to home

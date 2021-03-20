@@ -12,26 +12,26 @@
 
 <div id="container">
 
-    <% for (var userInfo = 0; userInfo < data.length; userInfo++) { %>
+    <%users.forEach(user => { %>
 
     <div class="user">
-        <img src="<%=data[userInfo].img%>" alt="profileIMG" class="profileIMG">
+        <img src="<%=user.img%>" alt="profileIMG" class="profileIMG">
 
         <h2 class="username">
-            <a href="/<%= data[userInfo].id%>" class="linkProfile"> <%=data[userInfo].username%> </a> |
-            <%= data[userInfo].age %>
+            <a href="/<%= user.id%>" class="linkProfile"> <%=user.name%> </a> |
+            <%= user.age %>
         </h2>
 
-        <p class="bio"> <%= data[userInfo].bio %> </p>
+        <p class="bio"> <%= user.bio %> </p>
 
-        <p class="interests"><%= data[userInfo].interests %></p>
+        <p class="interests"><%= user.interests %></p>
 
         <div class="likeDislike">
 
             <button class="likeDislikeBTN">
 
                 <img src="images/dislike.png" alt="profile" class="likeDislikeIMG" id=dislike
-                    data-value="<%= data[userInfo]._id %>">
+                    data-value="<%=user._id %>">
 
             </button>
 
@@ -43,7 +43,7 @@
 
     </div>
 
-    <% } %>
+    <% }) %>
 </div>
 
 <%- include ('partials/footer.ejs') -%>
