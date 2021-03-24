@@ -5,27 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <title>Welcome</title>
 </head>
 
 <body>
     <main>
         <form id="login">
-            <img src="../public/imgs/logo.png" alt="">
+            <img src="../static/images/logo.png" alt="">
             <fieldset>
                 <legend>Festiv</legend>
                 <input type="email" id="email" placeholder="Email">
                 <input type="password" id="psswrd" placeholder="Password">
                 <input type="submit" value="Login">
-                <a href="/register">Create a new account</a>
+                <button id="switch">Create Account</button>
             </fieldset>
             
         </form>
     </main>
     <script>
         const form = document.getElementById('login');
+        const btn = document.getElementById('switch');
+        
         form.addEventListener('submit', loginUser);
+        btn.addEventListener('click', createAccount);
+
+        function createAccount() {
+            location.href = '/register';
+        }
 
         async function loginUser(event) {
             event.preventDefault();
