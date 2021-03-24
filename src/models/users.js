@@ -29,20 +29,20 @@ const userSchema = new Schema({
 
     age: {
         type: String,
-        required: true
+        
     },
 
     bio:{
         type: String,
-        required: true
+        
     },
     img:{
         type: String,
-        required: true
+        
     },
     genre:{
         type: String,
-        required: true
+        
     }
 
 }, {timestamps: true});

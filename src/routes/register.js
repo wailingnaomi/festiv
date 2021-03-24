@@ -8,6 +8,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = 'fsabfasigbewoiugbpasvweth5qfiedsnc'
 
+// register
 register.post('/api/register', async (req, res) => {
     const { first_name, last_name, email, password: plainTextPassword } = req.body
     //Password hashing
@@ -31,11 +32,10 @@ register.post('/api/register', async (req, res) => {
     res.json({ status: 'ok' });
   });
 
+  // login
   register.post('/api/login', async (req, res) => {
 
     const { email, password } = req.body
-  
-  
   
     const user = await User.findOne({ email }).lean()
   
@@ -44,7 +44,7 @@ register.post('/api/register', async (req, res) => {
     }
   
     if (await bcrypt.compare(password, user.password)) {
-      //Combination is succseful
+      //Combination is succesful
       const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET)
       return res.json({ status: 'ok', data: ' ' })
     }

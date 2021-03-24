@@ -4,7 +4,6 @@
 
 <%- include ('partials/nav.ejs') -%>
 
-<h1>Find your match.</h1>
 
 <form id="searchInterests">
     <input type="text" name="term" placeholder="Search interests ..." id="search">
@@ -18,7 +17,7 @@
         <img src="<%=user.img%>" alt="profileIMG" class="profileIMG">
 
         <h2 class="username">
-            <a href="/<%= user.id%>" class="linkProfile"> <%=user.name%> </a> |
+            <a href="/<%= user.id%>" class="linkProfile"> <%=user.first_name%> </a> |
             <%= user.age %>
         </h2>
 
