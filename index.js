@@ -79,12 +79,6 @@ app.get('/register', (req, res) => {
 });
 
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
-});
-
-
-
 
 // Load in model
 const User = require('./src/models/users');
