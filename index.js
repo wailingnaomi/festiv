@@ -5,11 +5,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
 const session = require('express-session')
-const mongoose = require('mongoose');
-const users = require('./public/model/user')
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const JWT_SECRET = 'fsabfasigbewoiugbpasvweth5qfiedsnc'
+// const mongoose = require('mongoose');
+// const users = require('./public/model/user')
+
 // const mongo = require('mongodb')
 
 const app = express()
@@ -28,59 +26,14 @@ app.get('/', (req, res) => {
   res.render('login');
 });
 
-app.post('/api/login', async (req, res) => {
-
-  const { email, password } = req.body
 
 
 
-  const user = await users.findOne({ email }).lean()
 
-  if (!user) {
-    return res.json({ status: 'error', error: 'invalid username/password' })
-  }
-
-  if (await bcrypt.compare(password, user.password)) {
-    //Combination is succseful
-    const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET)
-    return res.json({ status: 'ok', data: ' ' })
-  }
-  res.json({ status: 'error', data: 'invalid username/password' })
-});
-
-
-
-app.post('/api/register', async (req, res) => {
-  const { first_name, last_name, email, password: plainTextPassword } = req.body
-  //Password hashing
-  const password = await bcrypt.hash(plainTextPassword, 10)
-  // console.log(req.body);
-  // console.log(password)
-
-  try {
-    const response = await users.create({
-      first_name,
-      last_name,
-      email,
-      password
-    })
-    console.log('user created succesfully', response)
-  } catch (error) {
-    console.log(error)
-    return res.json({ status: 'error' })
-  }
-
-  res.json({ status: 'ok' });
-});
 
 
 app.get('/register', (req, res) => {
   res.render('register');
-});
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}!`)
 });
 
 

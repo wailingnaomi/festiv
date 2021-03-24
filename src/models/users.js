@@ -1,11 +1,32 @@
+//reference to mongoose
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
+
 //make schema
 const userSchema = new Schema({
+    first_name: { 
+        type: String, 
+        required: true
+    },
+    last_name: {
+        type: String, 
+        require: true
+    },
+    email: {
+        type: String, 
+        require: true, 
+        unique: true
+    },
+    password: {
+        type: String, 
+        require: true
+    },
+    
     name: {
         type: String,
-        required: true
+        // required: true
     },
 
     age: {
@@ -28,7 +49,13 @@ const userSchema = new Schema({
 
 }, {timestamps: true});
 
-//structure of schema
+//create the model for the schema
 const User = mongoose.model('User', userSchema)
 
+//export model
 module.exports = User;
+
+
+    
+    
+   
