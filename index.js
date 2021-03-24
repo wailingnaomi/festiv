@@ -4,7 +4,6 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
-const session = require('express-session')
 // const mongoose = require('mongoose');
 // const users = require('./public/model/user')
 
@@ -85,11 +84,7 @@ app
     .use(bodyParser.urlencoded({
         extended: true
     }))
-    .use(session({
-        resave: false,
-        saveUninitialized: true,
-        secret: process.env.SESSION_SECRET
-    }))
+
     // .use(api)
     .get('/', start) // register and login
     .get('/home', home) // homepage with all the users
