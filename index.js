@@ -19,6 +19,7 @@ const home = require('./src/routes/home')
 // Load in mongoose and make connection to database
 require('./src/db/mongoose.js')
 
+app.use('/static', express.static(__dirname + '/static/'));
 app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
