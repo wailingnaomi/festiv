@@ -18,14 +18,21 @@
                 <input type="email" id="email" placeholder="Email">
                 <input type="password" id="psswrd" placeholder="Password">
                 <input type="submit" value="Login">
-                <a href="/register">Create a new account</a>
+                <button id="switch">Create Account</button>
             </fieldset>
             
         </form>
     </main>
     <script>
         const form = document.getElementById('login');
+        const btn = document.getElementById('switch');
+        
         form.addEventListener('submit', loginUser);
+        btn.addEventListener('click', createAccount);
+
+        function createAccount() {
+            location.href = '/register';
+        }
 
         async function loginUser(event) {
             event.preventDefault();
