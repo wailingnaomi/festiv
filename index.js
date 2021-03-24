@@ -12,6 +12,9 @@ const multer = require('multer')
 const app = express()
 
 
+const login = require('./src/routes/login')
+const register = require('./src/routes/register')
+const registerPage = require('./src/routes/registerPage')
 const home = require('./src/routes/home')
 
 
@@ -20,20 +23,6 @@ const home = require('./src/routes/home')
 require('./src/db/mongoose.js')
 
 app.use(bodyParser.json());
-
-app.get('/', (req, res) => {
-  res.render('login');
-});
-
-
-
-
-
-
-
-app.get('/register', (req, res) => {
-  res.render('register');
-});
 
 
 
@@ -86,7 +75,9 @@ app
     }))
 
     // .use(api)
-    .get('/', start) // register and login
+    .use(register)
+    .get('/', login) // register and login
+    .get('/register', registerPage)
     .get('/home', home) // homepage with all the users
     .post('/myprofile', uploadFile.single('profilepicture'), addProfile) // add a profile from 'start'
     .get('/myprofile', myProfile) // profile page
