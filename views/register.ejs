@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="register_user" action="/register" method="POST">
+        <img src="../public/imgs/logo.png" alt="">
+        <fieldset>
+            <legend>Festiv</legend>
+            <input type="text" id="fstnm" placeholder="First name" name="fstnm" required>
+            <input type="text" id="lstnm" placeholder="Last name" name="lstnm" required>
+            <input type="email" id="email" placeholder="Email" name="email" required>
+            <input type="password" id="psswrd" placeholder="Password" name="psswrd" required>
+            <!-- <input type="password" id="cnfrm_psswrd" placeholder="Confirm password" required> -->
+            <input type="submit" value="Create acount">
+            <a href="/">Back to login</a>
+        </fieldset>
+    </form>
+    <script>
+        const form = document.getElementById('register_user');
+        form.addEventListener('submit', registerUser);
+
+        async function registerUser(event) {
+            event.preventDefault();
+            const first_name = document.getElementById('fstnm').value;
+            const last_name = document.getElementById('lstnm').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('psswrd').value;
+
+            const result = await fetch('/api/register', {
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    first_name,
+                    last_name,
+                    email,
+                    password
+                })
+            }).then(res => res.json())
+
+            if (result.status === 'ok') {
+                // everythign went fine
+                console.log('succes')
+            } else {
+                console.log(result.error)
+            }
+        };</script>
+</body>
+
+</html>
