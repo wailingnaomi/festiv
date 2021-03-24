@@ -37,7 +37,10 @@ app.get('/register', (req, res) => {
 });
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 067ff8070ab85953da0ee7f9649bc2c79bc3310c
 
 // Load in model
 const User = require('./src/models/users');
