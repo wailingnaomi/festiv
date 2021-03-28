@@ -1,5 +1,5 @@
 #  Festiv
-Screenshot of mockup van festiv
+![Mockup](https://github.com/Aidan98/Project-Tech/blob/master/Assets/images/mockup.png)
 
 Hi there!
 
