@@ -12,19 +12,32 @@ Welcome to our project Festiv. Festiv is a dating app based on what kind of musi
 Hier komt link naar topic wiki
 
 ### Naomi
-> When I am looking for a match, I want to search on interests, so that I get a list of possible matches
+> When I am looking for a match, I want to search on interests, so that I get a list of possible matches.
 
 **Topic**
 Hier komt link naar topic wiki
 
-## Install the feature
+## Install Festiv
 ### Clone the repo
+You can install Festiv either by downloading the ZIP, or alternatively if you prefer cloning it in the CLI; you should run the following code:
+### CLI
+`git clone https://github.com/wailingnaomi/festiv.git`
+### Install dependencies
+By running `npm install` in the folder the clone is in you will be able to install all our dependencies.
 
-### Navigate to this repo
+### Run Festiv
+The server will run on port 8000 byusing `nodemon start`.
 
-### Install node modules
+### Set up your .env
+Set up your .env file for a MongoDB connection, the file should include the following:
 
-### Run the app
+```
+DB_NAME = <NAME OF YOUR DATABASE>
+DB_URL = <THE URL OF YOUR MONGO DATABASE>
+DB_USERNAME = <YOUR USERNAME>
+DB_PASS = <YOUR_PASSWORD>
+SESSION_SECRET= <YOUR SECRET>
+```  
 
 ## Sources
 * Node Js Routes In Separate File Using Express https://xpertphp.com/node-js-routes-in-separate-file-using-express/
