@@ -7,12 +7,12 @@ Welcome to our project Festiv. Festiv is a dating app based on what kind of musi
 
 ## Features
 ### Aidan
-When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
+> When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
 ** Topic **
 Hier komt link naar topic wiki
 
 ### Naomi
-"When I am looking for a match, I want to search on interests, so that I get a list of possible matches"
+> When I am looking for a match, I want to search on interests, so that I get a list of possible matches
 
 **Topic**
 Hier komt link naar topic wiki
