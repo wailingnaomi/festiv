@@ -34,4 +34,4 @@ Hier komt link naar topic wiki
 * MongoDB using NOT and AND together https://stackoverflow.com/questions/24092984/mongodb-using-not-and-and-together
 * MongoDB Manual: $en https://docs.mongodb.com/manual/reference/operator/query/ne/
 * MongoDB Manual: $and https://docs.mongodb.com/manual/reference/operator/query/and/
-* 
+* Stackoverflow: https://stackoverflow.com/questions/16841323/making-gradient-background-fill-page-with-css/16841457
