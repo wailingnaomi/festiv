@@ -13,9 +13,7 @@ register.post('/api/register', async (req, res) => {
     const { first_name, last_name, email, password: plainTextPassword } = req.body
     //Password hashing
     const password = await bcrypt.hash(plainTextPassword, 10)
-    // console.log(req.body);
-    // console.log(password)
-  
+
     try {
       const response = await User.create({
         first_name,

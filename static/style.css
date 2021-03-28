@@ -1,5 +1,4 @@
 *{
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 
 }
@@ -11,12 +10,13 @@ html {
     background-repeat: no-repeat;
 }
 
-/* main {
-    display: flex;
-    justify-content: center;
-} */
+body {
+    margin: 0em;
+    padding: 0em;
+}
 
-form {
+
+#login {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -83,33 +83,36 @@ input[type="submit"] {
 }
 
 
-
-body{
-    background-image: linear-gradient(#F4AD5B, #E44B91)
-}
-
 /*********************
     NAVIGATION BAR
 **********************/
 
-ul{
-    list-style-type: none;
+ul {
     display: flex;
-    /* justify-content: center; */
-    max-width: 50%;
-    height: 10%;
-    margin: 2em auto 0 auto;
+    border-radius: 20px 20px 0px 0px;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #F2F2F2;
 }
 
-li{
-    margin: 0 auto;
-    
+ul>li {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: inline-block;
+    float: none;
+    margin: 1em;
 }
 
-.nav{
-    max-height: 3em;
+.icon {
+    width: 30px;
+    height: 30px;
 }
-
 
 
 /*****************
@@ -125,140 +128,96 @@ h1{
 /*********************
     RESPONSIVE GRID
 **********************/
-#container{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
-    grid-gap: 1.5em;
-    justify-items: center;
-}
-
-.user{
-    border-radius: 5%;
-    background-color: #FFFFFF;
-    max-width: 15em;
-    height: 100%;
-    box-shadow: 4px 4px 2px rgba(0, 0, 0, .3);
-    padding: 24px;
-}
 
 /***************
     SEARCHBAR
 ****************/
+#searchBar {
+    background: #FFFFFF;
+}
+
 #search{
     display: block;
     margin: 0 auto 4em auto;
     width: 50%;
     height: 4em;
     padding: 10px;
-    border-radius: 3rem;
-    border-color: #000000;
+    border-radius: 5px;
     border-width: 3px;
-    border-style: solid;
-    box-shadow: 0px 4px 2px rgba(0, 0, 0, .3);
-    ;
+    background-color: #FFFFFF;
+    background: url(./images/search_48px.png) no-repeat ;
+    padding-left: 50px;
+}
+
+input:focus{
+    border: 2px solid #7067AE;
 }
 
 /********************
     USERS STYLING
 *********************/
-.profileIMG{
+main {
+    box-sizing: content-box;
+    display: flex;
+    /* position: absolute; */
+    flex-flow: nowrap;
+    /* justify-content: space-around; */
+    width: 100%;
+    height: auto;
+    overflow-x: scroll;
+    /* scrollbar-width: none; */
+}
+
+main>section {
+    box-sizing: content-box;
+    margin-left: 1em;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: auto;
+    height: 486px;
+}
+
+section>img {
     display: block;
-    max-width: 100%;
-    margin: 0 auto 0 auto;
+    width: 370px;
+    height: 76%;
+    border-radius: 5px 5px 0px 0px;
 }
 
-
-.linkProfile{
-    text-decoration: none;
-    color: #000000;
-}
-
-
-.username::first-letter{
-    text-transform: uppercase;
-}
-
-.username{
-    color: #000000;
-    font-size: 1.2em;
-}
-
-.genre{
-    font-size: 0.8em;
+main>section>p {
+    margin-left: 2%;
     color: #828282;
 }
 
-.likeDislike{
-    display:flex ;
-    justify-content: center ;
-    vertical-align: top;
-    align-items: center;
+h2 {
+    margin-left: 2%;
+}
+/***********************
+    FOOTER STYLING
+***********************/
+footer {
+    position: fixed;
+    bottom: 8em;
+    background-color: rgba(0, 0, 0, 0.0);
+    height: 100px;
 }
 
-.likeDislikeBTN{
-    margin: 1em auto 0 auto;
-    background-color: transparent;
-    border: none;
-}
-
-.likeDislikeIMG{
-    width: 3em;
-}
-
-.interestsContainer{
-   display: inline-grid;
-   grid-template-rows: 1fr;
-
-}
-
-
-.interestsContainer p{
-    font-size: 0.8em;
-    margin: 0 .5em 1em 0;
-    border-radius: 5%;
-    border: 1px solid #fff;
-    width: auto;
-    padding: 0 5px 0 5px;
-}
-
-
-/*********************
-    PROFILE STYLING
-**********************/
-.profileContainer{
-    border-radius: 5%;
-    background-color: #CCD0D7;
-    width: 408px;
-    height: 100%;
-    box-shadow: 5px 5px 5px #E9E9E9;
-    padding: 24px;
-    margin: 0 auto 0 auto;
-}
-
-#profilePicture{
-    max-width: 100%;
-    display: block;
-    margin: 0 auto 0 auto;
-}
-
-.interestsProfile{
-    width: 360px;
-}
-
-.editBTN, .deleteBTN{
+footer>ul {
+    box-sizing: unset;
+    display: table;
     width: 100%;
-    background: #484E5D;
-    color: #fff;
-    font-size: 1em;
-    margin-top: 2em;
+    bottom: unset;
+    background-color: unset;
 }
 
-.edit, .delete{
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
+footer>ul>li>img {
+    box-sizing: unset;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 
 /***********************
     EDIT FORM STYLING
