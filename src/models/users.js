@@ -43,7 +43,10 @@ const userSchema = new Schema({
     genre:{
         type: String,
         
-    }
+    },
+ occupation: {
+     type: String,
+ }
 
 }, {timestamps: true});
 
