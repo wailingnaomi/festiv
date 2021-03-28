@@ -5,11 +5,11 @@
 <%- include ('partials/nav.ejs') -%>
 
 
-<form id="searchInterests">
-    <input type="text" name="term" placeholder="Search interests ..." id="search">
+<form id="searchGenre">
+    <input type="text" name="term" placeholder="Search music ..." id="search">
 </form>
 
-<div id="container">
+<div class="container">
 
     <%users.forEach(user => { %>
 
@@ -43,4 +43,6 @@
     <% }) %>
 </div>
 
-<%- include ('partials/footer.ejs') -%>
+<script src="../static/searchbar.js"></script>
+
+<!-- <%- include ('partials/footer.ejs') -%> -->
