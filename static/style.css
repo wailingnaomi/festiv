@@ -1,5 +1,4 @@
 *{
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 
 }
@@ -11,12 +10,13 @@ html {
     background-repeat: no-repeat;
 }
 
-/* main {
-    display: flex;
-    justify-content: center;
-} */
+body {
+    margin: 0em;
+    padding: 0em;
+}
 
-form {
+
+#login {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -83,11 +83,6 @@ input[type="submit"] {
 }
 
 
-
-body{
-    background-image: linear-gradient(#F4AD5B, #E44B91)
-}
-
 /*********************
     NAVIGATION BAR
 **********************/
@@ -137,26 +132,34 @@ h1{
 /***************
     SEARCHBAR
 ****************/
+#searchBar {
+    background: #FFFFFF;
+}
+
 #search{
     display: block;
     margin: 0 auto 4em auto;
     width: 50%;
     height: 4em;
     padding: 10px;
-    border-radius: 3rem;
-    border-color: #000000;
+    border-radius: 5px;
     border-width: 3px;
-    border-style: solid;
-    box-shadow: 0px 4px 2px rgba(0, 0, 0, .3);
-    ;
+    background-color: #FFFFFF;
+    background: url(./images/search_48px.png) no-repeat ;
+    padding-left: 50px;
+}
+
+input:focus{
+    border: 2px solid #7067AE;
 }
 
 /********************
     USERS STYLING
 *********************/
 main {
+    box-sizing: content-box;
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     flex-flow: nowrap;
     /* justify-content: space-around; */
     width: 100%;
@@ -166,6 +169,7 @@ main {
 }
 
 main>section {
+    box-sizing: content-box;
     margin-left: 1em;
     background-color: #FFFFFF;
     border-radius: 5px;
@@ -188,6 +192,31 @@ main>section>p {
 
 h2 {
     margin-left: 2%;
+}
+/***********************
+    FOOTER STYLING
+***********************/
+footer {
+    position: fixed;
+    bottom: 8em;
+    background-color: rgba(0, 0, 0, 0.0);
+    height: 100px;
+}
+
+footer>ul {
+    box-sizing: unset;
+    display: table;
+    width: 100%;
+    bottom: unset;
+    background-color: unset;
+}
+
+footer>ul>li>img {
+    box-sizing: unset;
+    padding: 10px;
+    background-color: #FFFFFF;
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /***********************
