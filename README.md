@@ -7,7 +7,7 @@ Welcome to our project Festiv. Festiv is a dating app based on what kind of musi
 
 ## Features
 ### Aidan
-Hier komt Aidan's jobstory
+When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
 ** Topic **
 Hier komt link naar topic wiki
 
