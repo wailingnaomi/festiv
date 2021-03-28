@@ -1,4 +1,4 @@
-#  festiv
+#  Festiv
 Screenshot of mockup van festiv
 
 Hi there!
