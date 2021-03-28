@@ -1,19 +1,15 @@
-<%- include ('partials/header.ejs') -%>
-
 <title>TwoHearts - Find your match</title>
-
-<main>
-    <form id="searchInterests">
-        <input type="text" name="term" placeholder="Search interests ..." id="search">
-    </form>
-    <%users.forEach(user => { %>
-        <section>
-            <img src="<%=user.img%>" alt="picture of chloe"></img>
-            <h2><%=user.first_name%>, <%= user.age%></h2>
-            <p><%= user.occupation %></p>
-        </section>
-
-    <% }) %>
-</main>
-<%- include ('partials/nav.ejs') -%>
-<%- include ('partials/footer.ejs') -%>
+<body>
+    <%- include ('partials/header.ejs') -%>
+    <main>
+        <%users.forEach(user => { %>
+            <section>
+                <img src="<%=user.img%>" alt="picture of chloe"></img>
+                <h2><%=user.first_name%>, <%= user.age%></h2>
+                <p><%= user.occupation %></p>
+            </section>
+        <% }) %>
+    </main>     
+    <%- include ('partials/nav.ejs') -%>
+<%- include ('partials/footer.ejs') -%> 
+</body>
