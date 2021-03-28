@@ -2,45 +2,18 @@
 
 <title>TwoHearts - Find your match</title>
 
-<%- include ('partials/nav.ejs') -%>
-
-
-<form id="searchInterests">
-    <input type="text" name="term" placeholder="Search interests ..." id="search">
-</form>
-
-<div id="container">
-
+<main>
+    <form id="searchInterests">
+        <input type="text" name="term" placeholder="Search interests ..." id="search">
+    </form>
     <%users.forEach(user => { %>
-
-    <div class="user">
-        <img src="<%=user.img%>" alt="profileIMG" class="profileIMG">
-
-        <h2 class="username">
-            <a href="/<%= user.id%>" class="linkProfile"> <%=user.first_name%> </a> |
-            <%= user.age %>
-        </h2>
-
-        <p class="genre"><%= user.genre %></p>
-
-        <div class="likeDislike">
-
-            <button class="likeDislikeBTN">
-
-                <img src="images/dislike.png" alt="profile" class="likeDislikeIMG" id=dislike
-                    data-value="<%=user._id %>">
-
-            </button>
-
-            <button class="likeDislikeBTN">
-                <img src="images/like.png" alt="profile" class="likeDislikeIMG">
-            </button>
-
-        </div>
-
-    </div>
+        <section>
+            <img src="<%=user.img%>" alt="picture of chloe"></img>
+            <h2><%=user.first_name%>, <%= user.age%></h2>
+            <p><%= user.occupation %></p>
+        </section>
 
     <% }) %>
-</div>
-
+</main>
+<%- include ('partials/nav.ejs') -%>
 <%- include ('partials/footer.ejs') -%>
