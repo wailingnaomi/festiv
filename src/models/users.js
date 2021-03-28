@@ -22,11 +22,6 @@ const userSchema = new Schema({
         require: true
     },
     
-    name: {
-        type: String,
-        // required: true
-    },
-
     age: {
         type: String,
         
@@ -43,10 +38,21 @@ const userSchema = new Schema({
     genre:{
         type: String,
         
-    },
- occupation: {
+    },  occupation: {
      type: String,
- }
+ },
+    
+    liked: [
+        {
+            type: String,
+        }
+    ],
+
+    disliked: [
+        {
+            type: String
+        }
+    ]
 
 }, {timestamps: true});
 

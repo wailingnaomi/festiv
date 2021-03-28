@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 //packages
+const ejs = require('ejs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
@@ -16,6 +17,7 @@ const login = require('./src/routes/login')
 const register = require('./src/routes/register')
 const registerPage = require('./src/routes/registerPage')
 const home = require('./src/routes/home')
+const search = require('./src/routes/searchUser')
 
 
 
@@ -39,20 +41,6 @@ const User = require('./src/models/users');
 
 const api = new express.Router();
 
-// // Connect server with database
-// let db = null
-// const url = process.env.DB_URL
-// const ObjectId = require('mongodb').ObjectID;
-
-// mongo.MongoClient.connect(url, function (err, client) {
-//     if (err) {
-//         throw err
-//     }
-
-//     db = client.db(process.env.DB_NAME)
-// });
-
-
 
 // A folder where the uploaded files are stored
 var uploadFile = multer({
@@ -66,7 +54,6 @@ const storage = multer.diskStorage({
     }
 });
 
-
 app
     .set('view engine', 'ejs')
     .set('views', 'views')
@@ -77,6 +64,7 @@ app
 
     // .use(api)
     .use(register)
+    .use(search)
     .get('/', login) // register and login
     .get('/register', registerPage)
     .get('/home', home) // homepage with all the users
@@ -89,10 +77,6 @@ app
     .use(notFound)
     .listen(8000)
 
-
-function start(req, res) {
-    res.render('start.ejs')
-}
 
 
 
@@ -137,28 +121,7 @@ function remove(req, res) {
     }
 }
 
-//search for interests
-api.get('/search:term', (req, res) => {
 
-    // console.log(req.params.term.replace(":", ""));
-    // console.log(req.params.term)
-    // console.log(req.params)
-
-    // Find users with the filled in value
-    db.collection("userdata").find({
-        gender: "male",
-        interests: req.params.term.replace(":", "")
-    }).toArray(done);
-
-    function done(err, data) {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(data)
-            res.send(data)
-        }
-    }
-});
 
 // Find the user who has logged in and show that user profile
 function myProfile(req, res, next) {
