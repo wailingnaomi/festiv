@@ -26,7 +26,7 @@ You can install Festiv either by downloading the ZIP, or alternatively if you pr
 By running `npm install` in the folder the clone is in you will be able to install all our dependencies.
 
 ### Run Festiv
-The server will run on port 8000 byusing `nodemon start`.
+The server will run on port 8000 byusing `npm start`.
 
 ### Set up your .env
 Set up your .env file for a MongoDB connection, the file should include the following:
