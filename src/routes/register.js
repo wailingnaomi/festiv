@@ -1,12 +1,12 @@
-const express = require('express')
+const express = require('express');
 
-const register = new express.Router()
+const register = new express.Router();
 
-const User = require('../models/users')
+const User = require('../models/users');
 
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
-const JWT_SECRET = 'fsabfasigbewoiugbpasvweth5qfiedsnc'
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = 'fsabfasigbewoiugbpasvweth5qfiedsnc';
 
 // register
 register.post('/api/register', async (req, res) => {
@@ -15,6 +15,7 @@ register.post('/api/register', async (req, res) => {
     const password = await bcrypt.hash(plainTextPassword, 10)
 
     try {
+      //Creates account with the following parameters
       const response = await User.create({
         first_name,
         last_name,
@@ -38,6 +39,7 @@ register.post('/api/register', async (req, res) => {
     const user = await User.findOne({ email }).lean()
   
     if (!user) {
+      // window.alert('invalid username/password');
       return res.json({ status: 'error', error: 'invalid username/password' })
     }
   

@@ -1,5 +1,22 @@
 <ul>
-    <li><img class="icon" src="../../static/images/chat_52px.png" alt=""></li>
-    <li><img class="icon" src="../../static/images/home_48px.png" alt=""></li>
-    <li><img class="icon" src="../../static/images/user_60px.png" alt=""></li>
+    <li><img class='icon' src='../../static/images/chat_52px.png' alt='Chat icon'></li>
+    <li><img class="icon" src='../../static/images/home_48px.png' alt='Home Icon'></li>
+    <li><img class="icon" src='../../static/images/user_60px.png' alt='My account Icon'></li>
 </ul>
+
+<script>
+    const home = document.querySelector('li:nth-of-type(2)');
+    const myAccount = document.querySelector('li:nth-of-type(3)');
+
+    home.addEventListener('click', goHome);
+
+    function goHome() {
+        location.href= '/home';
+        console.log('clicked home');
+    }
+
+    function goAccount() {
+        location.href= '/myprofile';
+        console.log('clicked profile');
+    }
+</script>

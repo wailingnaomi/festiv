@@ -4,8 +4,8 @@
 const list = document.querySelectorAll('.user .genre')
 console.log(list)
 
-const searchBar = document.forms['searchGenre'].querySelector('input')
-const container = document.getElementsByClassName('container')[0]
+const searchBar = document.forms['searchBar'].querySelector('input');
+const container = document.getElementById('container');
 
 searchBar.addEventListener('keyup', function (e) {
   e.preventDefault();
