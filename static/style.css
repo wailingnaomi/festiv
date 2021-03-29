@@ -6,6 +6,7 @@
 html {
     /* https://stackoverflow.com/questions/16841323/making-gradient-background-fill-page-with-css/16841457 */
     background-image: linear-gradient(#F4AD5B, #E44B91);
+    height: 100%;
     background-repeat: no-repeat;
 }
 
