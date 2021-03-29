@@ -11,7 +11,7 @@ I built my feature according to the following job story:
 > When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
 
 ** Topic **
-Link to topic wiki
+[Link to topic](https://github.com/wailingnaomi/festiv/wiki/%F0%9F%93%B0-Topics/_edit)
 
 ### Naomi
 > When I am looking for a match, I want to search on interests, so that I get a list of possible matches.
