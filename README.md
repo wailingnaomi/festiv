@@ -6,6 +6,10 @@ Hi there!
 Welcome to our project Festiv. Festiv is a dating app where you can find people based on what kind of music you like. Register an account and log in to start liking (or disliking).
 
 ## Features
+* Login and Registration
+* The ability to search people based on the music they like
+* Edit profile
+* Add picture to your profile
 ### Aidan
 I built my feature according to the following job story:
 > When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
