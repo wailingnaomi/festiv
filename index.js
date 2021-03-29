@@ -5,6 +5,8 @@ const ejs = require('ejs')
 const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
+const session = require('express-session')
+
 // const mongoose = require('mongoose');
 // const users = require('./public/model/user')
 
@@ -18,7 +20,7 @@ const register = require('./src/routes/register')
 const registerPage = require('./src/routes/registerPage')
 const home = require('./src/routes/home')
 const search = require('./src/routes/searchUser')
-
+const profile = require('./src/routes/profile')
 
 
 // Load in mongoose and make connection to database
@@ -61,7 +63,11 @@ app
     .use(bodyParser.urlencoded({
         extended: true
     }))
-
+    .use(session({
+        resave: false,
+        saveUninitialized: true,
+        secret: process.env.SESSION_SECRET
+    }))
     // .use(api)
     .use(register)
     .use(search)
@@ -69,11 +75,10 @@ app
     .get('/register', registerPage)
     .get('/home', home) // homepage with all the users
     .post('/myprofile', uploadFile.single('profilepicture'), addProfile) // add a profile from 'start'
-    .get('/myprofile', myProfile) // profile page
+    .get('/profile/:id', profile) // profile page
     .get('/myprofile/edit', editProfile) // edit profile 
     .post('/myprofile/:id', uploadFile.single('profilepicture'), updateProfile) // update profile with 'editProfile'
     .post('/myprofile-delete', deleteProfile) // delete profile with session
-    .delete('/home/:id', remove) // dislike a profile
     .use(notFound)
     .listen(8000)
 
@@ -123,25 +128,7 @@ function remove(req, res) {
 
 
 
-// Find the user who has logged in and show that user profile
-function myProfile(req, res, next) {
-    db.collection('userdata').findOne({
-        _id: mongo.ObjectId(req.session.user._id)
-    }, done);
-    console.log(req.session.user._id)
 
-    function done(err, data) {
-        if (err) {
-            next(err)
-        } else {
-            res.render('myprofile.ejs', {
-                data: data
-            })
-            console.log(data)
-            console.log('this is' + req.session.user._id)
-        }
-    }
-}
 
 function editProfile(req, res) {
     res.render('editprofile')
