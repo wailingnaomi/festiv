@@ -1,11 +1,14 @@
 const User = require ('../models/users');
 const email = require ('./register')
+// const session = require('express-session')
+const { ObjectId } = require('mongodb')
 
 async function home (req, res, next) {
     try{
 
         const loggedIn = await User.findOne({
            email: 'test@tester.com'
+        //    _id: ObjectId(req.user._id),
         })
 
         // console.log(email)
@@ -28,6 +31,7 @@ async function home (req, res, next) {
             title: 'All users',
             users: allUsers
         })
+        // console.log(req.session.user)
     
     } catch (err){
         next(err)

@@ -6,7 +6,16 @@
             <section class="userContainer">
                 <img src='<%=user.img%>' alt='<%=user.first_name%>'></img>
                 <h2><%=user.first_name%>, <%= user.age%></h2>
-                <p><%= user.occupation %> <span class="userGenre">| <%= user.genre %></span></p>                
+                <p><%= user.occupation %> | <span class="userGenre"><%=user.genre%></span></p>
+                <div>
+                    <!-- <ul>
+                        <li>hello</li>
+                    </ul> -->
+                    <ul>
+                        <li><img class='icon' src='../static/images/love_48px.png' alt='like'></li>
+                        <li><img class='icon' src='../static/images/multiply_48px.png' alt='dislike'></li>
+                    </ul>     
+                </div>
             </section>
         <% }) %>
     </main>     

@@ -9,6 +9,7 @@
     const myAccount = document.querySelector('li:nth-of-type(3)');
 
     home.addEventListener('click', goHome);
+    myAccount.addEventListener('click', goAccount);
 
     function goHome() {
         location.href= '/home';
@@ -16,7 +17,7 @@
     }
 
     function goAccount() {
-        location.href= '/myprofile';
+        location.href= '/profile';
         console.log('clicked profile');
     }
 </script>
