@@ -3,7 +3,7 @@
 const list = document.querySelectorAll('.user .interests');
 console.log(list)
 
-const searchBar = document.forms['searchInterests'].querySelector('input');
+const searchBar = document.forms['searchBar'].querySelector('input');
 const container = document.getElementById('container');
 
 searchBar.addEventListener('keyup', function (e) {
