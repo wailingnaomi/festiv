@@ -1,12 +1,12 @@
 <title>TwoHearts - Find your match</title>
 <body>
     <%- include ('partials/header.ejs') -%>
-    <main>
+    <main class="container">
         <%users.forEach(user => { %>
-            <section>
-                <img src='<%=user.img%>' alt='picture of chloe'></img>
+            <section class="userContainer">
+                <img src='<%=user.img%>' alt='<%=user.first_name%>'></img>
                 <h2><%=user.first_name%>, <%= user.age%></h2>
-                <p><%= user.occupation %></p>
+                <p><%= user.occupation %> <span class="userGenre">| <%= user.genre %></span></p>                
             </section>
         <% }) %>
     </main>     
