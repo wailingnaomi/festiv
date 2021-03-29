@@ -1,18 +1,21 @@
 const User = require ('../models/users');
-const test = require ('./register')
+const email = require ('./register')
 
 async function home (req, res, next) {
     try{
+
         const loggedIn = await User.findOne({
-           _id: req.body._id
+           email: 'test@tester.com'
         })
-        
+
+        // console.log(email)
         console.log('i am logged in as ' + loggedIn)
 
         const allUsers = await User.find({
             $and: [{
-                _id: {
-                  $ne: User._id,
+                email: {
+                    // this operate won't let the logged in user appear in the homepage
+                  $ne: loggedIn.email,
                 },
               },
               ],
@@ -21,21 +24,10 @@ async function home (req, res, next) {
 
         console.log('all users ' + allUsers)
 
-
-        
-
         res.render('home', {
             title: 'All users',
             users: allUsers
         })
-
-        // const users = await User.find()
-        //     .then((result) => {
-        //     res.render('home', { title: 'All users', users: result})
-        //     })
-        //     .catch((err) => {
-        //         console.log(err)
-        //     })
     
     } catch (err){
         next(err)
