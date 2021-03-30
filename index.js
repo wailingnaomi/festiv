@@ -21,7 +21,7 @@ const registerPage = require('./src/routes/registerPage')
 const home = require('./src/routes/home')
 const search = require('./src/routes/searchUser')
 const profile = require('./src/routes/profile')
-
+const match = require('./src/routes/likeAndDislike')
 
 // Load in mongoose and make connection to database
 require('./src/db/mongoose.js')
@@ -74,6 +74,7 @@ app
     .get('/', login) // register and login
     .get('/register', registerPage)
     .get('/home', home) // homepage with all the users
+    .post('/match', match)
     .post('/myprofile', uploadFile.single('profilepicture'), addProfile) // add a profile from 'start'
     .get('/profile/:id', profile) // profile page
     .get('/myprofile/edit', editProfile) // edit profile 

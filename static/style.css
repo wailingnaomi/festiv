@@ -133,10 +133,6 @@ h1{
 /***************
     SEARCHBAR
 ****************/
-#searchContainer{
-    /* margin: 2em auto 4em auto; */
-}
-
 #searchBar {
     position: relative;
     display: block;
@@ -146,7 +142,7 @@ h1{
 
 #search{
     display: block;
-    margin: 8em auto 4em auto;
+    margin: 4em auto;
     width: 358px;
     height: 4em;
     padding: 10px;
@@ -212,28 +208,54 @@ main>section>p>span::first-letter {
 }
 
 
-main>section>div{
-    display: block;
+main>section>form{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3em;
+
 
 }
 
-main>section>div>ul{
+main>section>form>div{
     /* padding: 0; */
-    width: 100%;
-    position: relative;
-    background-color: unset;
+    /* width: 100%; */
+    /* position: relative; */
+    /* background-color: unset; */
+    width: 3em;
+    height: 3em;
+
+}
+
+input[type="submit"].inputLike{
+    font-size: 1em;
+    background-image: url(./images/love_48px.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    outline: none;
+    margin: 0;
+}
+
+input[type="submit"].inputDislike{
+    font-size: 1em;
+    background-image: url(./images/multiply_48px.png);
+    background-repeat: no-repeat;
+    border: none;
+    background-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    outline: none;
+    margin: 0;
 }
 
 main>section>div>ul>li{
     margin: 0 3em;
 }
 
-main>section>div>ul>li>img{
-    box-sizing: unset;
-    padding: 10px;
-    background-color: #FFFFFF;
-    border-radius: 100%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.matchBTN{
+    
     
 }
 
