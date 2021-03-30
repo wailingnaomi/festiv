@@ -6,7 +6,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const multer = require('multer')
 const session = require('express-session')
-
+// const localStorage = require('localstorage')
 // const mongoose = require('mongoose');
 // const users = require('./public/model/user')
 
@@ -88,6 +88,18 @@ app
 
 
 // if there is a session, send to home otherwise fill in data and send to home
+// async function isLoggedIn () {
+//     console.log('aangeroepen!')
+//     const check = sessionStorage.getItem('token')
+//     if (!token) 
+//     console.log('token not found');
+//     return false
+//   }
+//   async function autoRedirect () {
+//     const validLogin = await isLoggedIn()
+//     if (!validLogin && location.href !== '/') redirect('/')
+//     if (validLogin && location.href === '/') redirect('/home')
+//   }
 function addProfile(req, res) {
     if (req.session.user) {
         res.redirect("/home")
@@ -103,6 +115,7 @@ function addProfile(req, res) {
         res.redirect("/home");
     }
 }
+
 
 
 // Classmate Brian helped me to write this function
