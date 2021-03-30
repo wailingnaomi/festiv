@@ -7,7 +7,7 @@ async function home (req, res, next) {
     try{
 
         const loggedIn = await User.findOne({
-           email: 'test@tester.com'
+           email: 'naomi@aidan.com'
         //    _id: ObjectId(req.user._id),
         })
 

@@ -48,7 +48,7 @@ async function match(req, res, next){
     
     try{
         const loggedIn = await User.findOne({
-            email: 'test@tester.com'
+            email: 'naomi@aidan.com'
         })
 
         console.log(loggedIn)

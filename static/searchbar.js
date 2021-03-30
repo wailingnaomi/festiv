@@ -33,12 +33,12 @@ searchBar.addEventListener('keyup', function (e) {
         <form action="/match" method="POST">
           <div class='like'>
             <div class='matchBTN'>
-              <input class="inputLike" type="submit" value='<%=user._id%>' src='../static/images/love_48px.png' name='like'>
+              <input class="inputLike" type="submit" value=${user._id} src='../static/images/love_48px.png' name='like'>
             </div>
           </div>
           <div class='dislike'>
             <div class='matchBTN'>
-              <input class="inputDislike" type='submit' value='<%=user._id%>' src='../static/images/multiply_48px.png' name='dislike'>
+              <input class="inputDislike" type='submit' value=${user._id} src='../static/images/multiply_48px.png' name='dislike'>
             </div>
           </div>
       </form>
