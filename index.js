@@ -7,13 +7,7 @@ const bodyParser = require('body-parser')
 const multer = require('multer')
 const session = require('express-session')
 
-// const mongoose = require('mongoose');
-// const users = require('./public/model/user')
-
-// const mongo = require('mongodb')
-
-const app = express()
-
+const app = express() //start express application
 
 const login = require('./src/routes/login')
 const register = require('./src/routes/register')
@@ -21,15 +15,10 @@ const registerPage = require('./src/routes/registerPage')
 const home = require('./src/routes/home')
 const search = require('./src/routes/searchUser')
 const profile = require('./src/routes/profile')
-
+const match = require('./src/routes/likeAndDislike')
 
 // Load in mongoose and make connection to database
 require('./src/db/mongoose.js')
-
-app.use('/static', express.static(__dirname + '/static/'));
-app.use(bodyParser.json());
-
-
 
 // Load in model
 const User = require('./src/models/users');
@@ -40,8 +29,6 @@ const User = require('./src/models/users');
 
 })()
 
-
-const api = new express.Router();
 
 
 // A folder where the uploaded files are stored
@@ -60,6 +47,8 @@ app
     .set('view engine', 'ejs')
     .set('views', 'views')
     .use(express.static('static'))
+    .use('/static', express.static(__dirname + '/static/'))
+    .use(bodyParser.json())
     .use(bodyParser.urlencoded({
         extended: true
     }))
@@ -74,6 +63,7 @@ app
     .get('/', login) // register and login
     .get('/register', registerPage)
     .get('/home', home) // homepage with all the users
+    .post('/match', match)
     .post('/myprofile', uploadFile.single('profilepicture'), addProfile) // add a profile from 'start'
     .get('/profile/:id', profile) // profile page
     .get('/myprofile/edit', editProfile) // edit profile 
@@ -103,31 +93,6 @@ function addProfile(req, res) {
         res.redirect("/home");
     }
 }
-
-
-// Classmate Brian helped me to write this function
-function remove(req, res) {
-    // Get ID of a user
-    const itemID = req.params.id;
-    console.log(itemID)
-
-    try {
-        // Delete an ID from the collection userdata
-        db.collection('userdata').deleteOne({
-            "_id": ObjectId(itemID)
-        });
-        console.log(itemID); // To check which ID is going to be deleted
-        console.log('deleted');
-        res.status(200).send('deleted');
-    } catch (e) {
-        console.log('failed')
-        console.log(e);
-        res.status(400).send(e)
-    }
-}
-
-
-
 
 
 function editProfile(req, res) {
