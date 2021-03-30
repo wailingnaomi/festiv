@@ -38,16 +38,16 @@ const userSchema = new Schema({
     genre:{
         type: String,
         
-    },  occupation: {
+    },  
+    occupation: {
      type: String,
- },
-    
+
+    },
     liked: [
         {
             type: String,
         }
     ],
-
     disliked: [
         {
             type: String

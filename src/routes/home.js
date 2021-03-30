@@ -7,7 +7,7 @@ async function home (req, res, next) {
     try{
 
         const loggedIn = await User.findOne({
-           email: 'test@tester.com'
+           email: 'naomi@aidan.com'
         //    _id: ObjectId(req.user._id),
         })
 
@@ -15,17 +15,31 @@ async function home (req, res, next) {
         console.log('i am logged in as ' + loggedIn)
 
         const allUsers = await User.find({
-            $and: [{
+            $and: [
+                {
                 email: {
-                    // this operate won't let the logged in user appear in the homepage
                   $ne: loggedIn.email,
+                },
+              },
+              {
+                _id: {
+                  // all liked users are saved in the liked array
+                  // this operator wont let the liked user appear in the homepage
+                  $nin: loggedIn.liked,
+                },
+              },
+              {
+                _id: {
+                  // all disliked users are saved in the disliked array
+                  // this operator wont let the disliked user appear in the homepage
+                  $nin: loggedIn.disliked,
                 },
               },
               ],
         
         })
 
-        console.log('all users ' + allUsers)
+        // console.log('all users ' + allUsers)
 
         res.render('home', {
             title: 'All users',

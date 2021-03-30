@@ -1,0 +1,15 @@
+<title>Festiv</title>
+<body>
+    <%- include ('partials/header.ejs') -%>
+    <main class='container'>
+        <%users.forEach(user => { %>
+            <section class='matchContainer'>
+            <h1>You've got a match!</h1>
+            <a class="linkToSwipe" href='/home'>
+                <button type='button' class='keepswiping'>Keep swiping</button>
+            </a>
+            </section>
+        <% }) %>
+    </main>     
+    <%- include ('partials/nav.ejs') -%>
+</body>

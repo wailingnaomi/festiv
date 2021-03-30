@@ -27,9 +27,22 @@ searchBar.addEventListener('keyup', function (e) {
       container.insertAdjacentHTML('beforeend', ` 
 
       <section class="userContainer">
-      <img src=${user.img} alt='picture of ${user.first_name}'></img>
-      <h2>${user.first_name}, ${user.age}</h2>
-      <p>${user.occupation} <span class="userGenre">| ${user.genre}</span></p>                
+        <img src=${user.img} alt=${user.first_name}></img>
+        <h2>${user.first_name}, ${user.age}</h2>
+        <p>${user.occupation} | <span class="userGenre">${user.genre}</span></p>
+        <form action="/match" method="POST">
+          <div class='like'>
+            <div class='matchBTN'>
+              <input class="inputLike" type="submit" value=${user._id} src='../static/images/love_48px.png' name='like'>
+            </div>
+          </div>
+          <div class='dislike'>
+            <div class='matchBTN'>
+              <input class="inputDislike" type='submit' value=${user._id} src='../static/images/multiply_48px.png' name='dislike'>
+            </div>
+          </div>
+      </form>
+      </section>                
 
     `)
     })

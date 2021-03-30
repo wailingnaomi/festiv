@@ -15,13 +15,13 @@ I built my feature according to the following job story:
 > When I use the dating application for the first time, I want to be able to create an account so I can create my profile.
 
 ** Topic **
-[Link to topic](https://github.com/wailingnaomi/festiv/wiki/%F0%9F%93%B0-Topics/_edit)
+[Password Hashing](https://github.com/wailingnaomi/festiv/wiki/%F0%9F%93%B0--Topic-%7C-Password-Hashing-by-Aidan)
 
 ### Naomi
 > When I am looking for a match, I want to search on interests, so that I get a list of possible matches.
 
 **Topic**
-Link to topic wiki
+[Mongoose](https://github.com/wailingnaomi/festiv/wiki/%F0%9F%93%B0--Topic-%7C-Mongoose-by-Naomi)
 
 ## Install Festiv
 ### Clone the repo
