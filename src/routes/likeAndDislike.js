@@ -1,13 +1,16 @@
 const { ObjectId } = require('mongodb')
 const User = require('../models/users')
 
+//the liked user updates the given id, and pushes the liked user to the liked array
 async function likedUser(match, user){
     console.log('dit is de likeUser functie')
     console.log(`dit is van req ${match}`)
+    
     try{
         await User.updateOne({
             _id: ObjectId(user._id),
         }, {
+            //this operator pushes the user to the liked array
             $push:{
                 liked: match,
             }
@@ -19,6 +22,7 @@ async function likedUser(match, user){
     }
 }
 
+//the disliked user updates the given id, and pushes the disliked user to the disliked array
 async function dislikedUser(noMatch, user){
     console.log('dit is de dislikedUser functie')
     console.log(`dit is van ${noMatch}`)
@@ -27,15 +31,15 @@ async function dislikedUser(noMatch, user){
         await User.updateOne({
           _id: ObjectId(user._id)
         }, {
+            //this operator pushes the user to the disliked array
           $push: {
             disliked: noMatch,
           },
         })
         return false
-    } catch(bitch){
-        console.log(bitch)
+    } catch(err){
+        console.log(err)
     }
-
 }
 
 async function match(req, res, next){

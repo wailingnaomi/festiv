@@ -30,8 +30,8 @@ async function home (req, res, next) {
               },
               {
                 _id: {
-                  // all liked users are saved in the liked array
-                  // this operator wont let the liked user appear in the homepage
+                  // all disliked users are saved in the disliked array
+                  // this operator wont let the disliked user appear in the homepage
                   $nin: loggedIn.disliked,
                 },
               },

@@ -62,7 +62,7 @@ input[type="text"], input[type="password"], input[type="email"]{
     color: #000000;
 }
 
-input[type="submit"], #switch {
+input[type="submit"], #switch, .keepswiping {
     width: 15em;
     margin-top: 15px;
     height: 3em;
@@ -254,9 +254,27 @@ main>section>div>ul>li{
     margin: 0 3em;
 }
 
-.matchBTN{
-    
-    
+.matchContainer{
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.matchContainer>h1{
+    text-align: center;
+}
+
+.linkToSwipe{
+    display: block;
+    text-align: center;
+}
+
+.keepswiping{
+    background: #7067AE;
+    border: none;
 }
 
 h2 {
