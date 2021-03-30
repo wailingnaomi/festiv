@@ -8,6 +8,13 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'fsabfasigbewoiugbpasvweth5qfiedsnc';
 
+register.post('/api/home', async (req, res) => {
+  const { token } = req.body
+ const user =  jwt.verify(token, JWT_SECRET)
+
+  
+})
+
 // register
 register.post('/api/register', async (req, res) => {
     const { first_name, last_name, email, password: plainTextPassword } = req.body
@@ -39,13 +46,13 @@ register.post('/api/register', async (req, res) => {
     const user = await User.findOne({ email }).lean()
   
     if (!user) {
-      // window.alert('invalid username/password');
       return res.json({ status: 'error', error: 'invalid username/password' })
     }
   
     if (await bcrypt.compare(password, user.password)) {
       //Combination is succesful
       const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET)
+      // sessionStorage.setItem('token', token)
       return res.json({ status: 'ok', data: ' ' })
     }
     res.json({ status: 'error', data: 'invalid username/password' })

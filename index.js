@@ -5,6 +5,9 @@ const ejs = require('ejs')
 const express = require('express')
 const bodyParser = require('body-parser')
 
+const app = express()
+
+
 const app = express() //start express application
 
 const login = require('./src/routes/login')
@@ -43,7 +46,6 @@ app
     .get('/home', home) // homepage with all the users
     .post('/match', match)
     .listen(8000)
-
 
 function notFound(req, res) {
     res.status(404).render('notfound.ejs')
